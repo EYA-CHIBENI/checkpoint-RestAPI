@@ -41,8 +41,8 @@ exports.UpdateOneContact = async (req, res) => {
 exports.GetOneContact = async (req, res) => {
     try {
         const { id } = req.params
-        const contact = await Contact.findById(id)
-        res.status(200).send({ msg: 'The contact', contact })
+        const found = await Contact.findById(id)
+        res.status(200).send({ msg: 'The contact', found })
     } catch (error) {
         res.status(500).send('could not get contacts')
     }
